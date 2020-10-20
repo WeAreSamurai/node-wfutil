@@ -1370,7 +1370,7 @@ void createProxy(const FunctionCallbackInfo<Value>& args) {
     const unsigned argc = 1;
     Local<Value> argv[argc] = { Boolean::New(isolate, result) };
 
-    callback->Call(isolate->GetCurrentContext()->Global(), argc, argv);
+    callback->Call(isolate->GetCurrentContext(), isolate->GetCurrentContext()->Global(), argc, argv);
 #endif
 }
 
@@ -1410,7 +1410,7 @@ void deleteProxy(const FunctionCallbackInfo<Value>& args)
     const unsigned argc = 1;
     Local<Value> argv[argc] = { Boolean::New(isolate, result) };
 
-    callback->Call(isolate->GetCurrentContext()->Global(), argc, argv);
+    callback->Call(isolate->GetCurrentContext(), isolate->GetCurrentContext()->Global(), argc, argv);
 #endif
 }
 #else // Node 10 & 8
